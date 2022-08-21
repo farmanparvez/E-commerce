@@ -1,0 +1,15 @@
+@import "../../style//main.scss";
+
+.product-list-container{
+    // @include flex;
+    width: 90%;
+    margin: 0 auto;
+    margin: 20px auto;
+    .title-container{
+        @include flexWithValue(space-between, center);
+        width: 100%
+    }
+    .action-btn-container{
+        @include flexWithValue(space-between, center)
+    }
+}

@@ -1,0 +1,70 @@
+@import "../../style/main.scss";
+
+.carousal {
+  height: "160px";
+  color: "#fff";
+  line-height: "160px";
+  text-align: "center";
+  background: "#364d79";
+}
+
+.carousel-container {
+  //   display: flex;
+  background: aliceblue;
+  // height: 500px;
+  display: flex;
+  flex-direction: column;
+  // justify-content: flex-end;
+  .content-box {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    flex-direction: column;
+    // padding: 130px 0 130px 130px;
+    flex-grow: 1;
+    min-width: 450px;
+    min-height: 300px;
+    // height: 100%;
+    max-height: 500px;
+    .content {
+      @include flexWithValue(center, flex-start);
+      flex-direction: column;
+      width: 80%;
+      margin: auto;
+    }
+    h1 {
+      font-weight: bold;
+      margin: 0;
+      // padding-bottom: 5px;
+    }
+  }
+  .image-container {
+    flex-basis: 50%;
+    @include flex;
+    background: #555;
+    flex-grow: 1;
+    padding: 30px;
+    // height: 100%;
+    max-height: 500px;
+    // .img-box {
+      // width: 100%;
+
+      .cur-img {
+        // min-width: 70%;
+        // min-height: 70%;
+        margin: auto auto;
+        border-radius: 2%;
+        // max-width: 90%;
+        // max-height: 90% ;
+        height: 90%;
+        width: 85%;
+      }
+    // }
+  }
+}
+
+.size {
+  min-height: 500px;
+  //   background: darkblue;
+}

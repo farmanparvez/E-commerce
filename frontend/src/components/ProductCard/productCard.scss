@@ -1,0 +1,41 @@
+.card-container {
+    box-shadow: -2px 3px 14px -10px rgba(0,0,0,0.59);
+    // border-radius: 8px;
+
+  .ant-card-bordered {
+    // border-radius: 10px;
+    border: 0;
+  }
+  .ant-card-body{
+    padding: 0;
+  }
+  .card-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    // background: aliceblue;
+    cursor: pointer;
+
+    img {
+      width: 330px;
+      height: 300px;
+    }
+    .details {
+        width: 100%;
+        padding: 20px;
+        background: aliceblue;
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    //   flex-direction: column;
+        p{
+            margin: 0;
+            font-weight: normal;
+            color: #555;
+            text-transform: capitalize
+        }
+    }
+  }
+}

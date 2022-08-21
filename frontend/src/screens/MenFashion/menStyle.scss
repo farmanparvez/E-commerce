@@ -1,0 +1,31 @@
+@import "../../style//main.scss";
+
+.men-product-wrapper {
+  position: relative;
+  //   @include borderBottom(30%);
+  .border-botom {
+    @include borderBottom(9%);
+  }
+  .men-product-container {
+    @include flex;
+    background: whitesmoke;
+    width: 96%;
+    padding: 100px 20px;
+    margin: 0 auto 0 auto;
+    border-radius: 10px;
+  }
+}
+
+.spinStyle {
+  min-height: 500px;
+  // border-top: 1px solid #c9c2c2;
+  // border-bottom: 1px solid #c9c2c2;
+}
+
+.heading {
+  //   margin: 1em 1em 0 1em;
+  margin: 1em;
+  font-weight: 700;
+  text-align: center;
+  //   padding-bottom: 0;
+}
