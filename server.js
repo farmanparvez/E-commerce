@@ -6,6 +6,6 @@ dotenv.config()
 
 connectDB();
 console.log(process.env.NODE_ENV)
-const Port = 8000 || process.env.PORT
+const Port = process.env.PORT || 8000
 
 app.listen(Port, () => console.log(`app is running at ${Port}`))
