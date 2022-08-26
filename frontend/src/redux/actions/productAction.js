@@ -9,7 +9,7 @@ import {
   getProductByIdAPI,
   placeOrderAPI,
   productReviewsAPI,
-  topRatingProductsAPI
+  topRatingProductsAPI,
 } from "../../service/productAPI";
 
 // uploadimage
@@ -127,12 +127,16 @@ export const getProductByID = createAsyncThunk(
 export const addCartItem = createAsyncThunk(
   "addCartItem/addCartItemInLocalStorege",
   async ({ val, history }, thunkAPI) => {
-    console.log(val)
-    const existItem = localStorage.getItem("cartItem") && JSON.parse(localStorage.getItem("cartItem")).find(
-      (x) => x._id === val._id
-    );
-    if (existItem) return;
     console.log(val);
+    const existItem =
+      localStorage.getItem("cartItem")?.length > 0 &&
+      JSON.parse(localStorage.getItem("cartItem")).find(
+        (x) => x._id === val._id && x.user === val.user
+      );
+
+      console.log(existItem)
+    if (existItem) return;
+    // console.log(val);
     const oldCartItems = localStorage.getItem("cartItem")
       ? JSON.parse(localStorage.getItem("cartItem"))
       : [];

@@ -10,7 +10,7 @@ const PaymentScreen = ({ history }) => {
   const cart = useSelector((state) => state.product)
   const { shippingAddress } = cart
 
-  if (!shippingAddress.address) {
+  if (!shippingAddress?.address) {
     history.push('/shipping')
   }
   // console.log(shippingAddress.address)

@@ -4,8 +4,8 @@ import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import CheckoutSteps from "../components/CheckoutSteps";
-import { createOrder } from '../redux/actions/productAction'
-import {openNotification} from "../utils/notification"
+import { createOrder } from "../redux/actions/productAction";
+import { openNotification } from "../utils/notification";
 // import { ORDER_CREATE_RESET } from '../constants/orderConstants'
 // import { USER_DETAILS_RESET } from '../constants/userConstants'
 import Container from "../components/Container";
@@ -14,9 +14,11 @@ const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.product);
-  const {  isSuccess, isError, isMessage, order } = cart;
+  const { isSuccess, isError, isMessage, order } = cart;
 
   console.log(cart.cartItem);
+  const cartProduct =  cart.cartItem?.filter(
+    (val) => val.user === JSON.parse(localStorage.getItem("userInfo"))._id)
   if (!cart.shippingAddress.address) {
     history.push("/shipping");
   } else if (!cart.paymentMethod) {
@@ -28,12 +30,12 @@ const PlaceOrderScreen = ({ history }) => {
   };
 
   const itemsPrice = addDecimals(
-    cart.cartItem.reduce((acc, item) => acc + item.price * item.qty, 0)
+    cartProduct.reduce((acc, item) => acc + item.price * item.qty, 0)
   );
   // console.log(itemsPrice)
- const shippingPrice = addDecimals(itemsPrice > 100 ? 0 : 100);
- const taxPrice = addDecimals(Number((0.15 * itemsPrice).toFixed(2)));
- const totalPrice = (
+  const shippingPrice = addDecimals(itemsPrice > 100 ? 0 : 100);
+  const taxPrice = addDecimals(Number((0.15 * itemsPrice).toFixed(2)));
+  const totalPrice = (
     Number(itemsPrice) +
     Number(shippingPrice) +
     Number(taxPrice)
@@ -44,19 +46,21 @@ const PlaceOrderScreen = ({ history }) => {
 
   useEffect(() => {
     if (isSuccess) {
-      openNotification('success', 'Success', isMessage )
-      history.push(`/order/${order._id}`)
+      openNotification("success", "Success", isMessage);
+      history.push(`/order/${order._id}`);
       // dispatch({ type: USER_DETAILS_RESET })
       // dispatch({ type: ORDER_CREATE_RESET })
     }
-    if(isError) openNotification('error', 'Failed', isMessage)
+    if (isError) openNotification("error", "Failed", isMessage);
     // eslint-disable-next-line
-  }, [history, isSuccess, isError, isMessage])
+  }, [history, isSuccess, isError, isMessage]);
 
   const placeOrderHandler = () => {
     dispatch(
       createOrder({
-        orderItems: cart.cartItem,
+        orderItems: cart.cartItem?.filter(
+          (val) => val.user === JSON.parse(localStorage.getItem("userInfo"))._id
+        ),
         shippingAddress: cart.shippingAddress,
         paymentMethod: cart.paymentMethod,
         itemsPrice,
@@ -64,7 +68,7 @@ const PlaceOrderScreen = ({ history }) => {
         taxPrice,
         totalPrice,
       })
-    )
+    );
   };
 
   return (
@@ -95,7 +99,7 @@ const PlaceOrderScreen = ({ history }) => {
                 <Message>Your cart is empty</Message>
               ) : (
                 <ListGroup variant="flush">
-                  {cart.cartItem.map((item, index) => (
+                  {cartProduct.map((item, index) => (
                     <ListGroup.Item key={index}>
                       <Row>
                         <Col md={1}>
