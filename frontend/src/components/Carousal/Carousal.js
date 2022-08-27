@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import SpinContainer from "../SpinContainer/SpinContainer";
 import { reset } from "../../redux/reducers/productReducer";
 import "./carousal.scss";
+import { Link } from "react-router-dom";
 
 const Carousal = () => {
   const { isLoading, isError, topRatedProducts } = useSelector(
@@ -48,14 +49,16 @@ const Carousal = () => {
                       <h1>{product.brand}</h1>
                       <h5>{product.name}</h5>
                       <p>{product.description}</p>
-                      <Button style={{ width: "30%" }} size="large">
-                        Buy Now
-                      </Button>
+                      <Link to={`/product/${product._id}`}>
+                        <Button size="large">
+                          Buy Now
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                   <div className="image-container">
                     {/* <div className="img-box"> */}
-                      <img className="cur-img" src={product.image} alt="" />
+                    <img className="cur-img" src={product.image} alt="" />
                     {/* </div> */}
                   </div>
                 </div>
