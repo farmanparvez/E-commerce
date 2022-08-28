@@ -22,6 +22,7 @@ import {
 } from "../../redux/actions/productAction";
 import Container from "../../components/Container";
 import { reset } from "../../redux/reducers/productReducer";
+import { url } from "../../utils/url";
 // import Container from "../components/Container";
 import "./productdetails.scss";
 
@@ -86,13 +87,13 @@ const ProductScreen = ({ history, match }) => {
           <Message variant="danger">{isMessage}</Message>
         ) : (
           <>
-          <Link to={`http://localhost:8000/${product.image}`}>{`http://localhost:8000/${product.image}`}</Link> <br />
-          <span>{window.location.href}</span>
+          {/* <Link to={`${url}${product.image}`} >{`http://localhost:8000/${product.image}`}</Link> <br /> */}
+          {/* <span>{window.location.href}</span> */}
             <Meta title={product?.name} />
             <Row>
               <Col md={6}>
                 <img
-                  src={`http://localhost:8000/${product.image}`}
+                  src={`${url}${product.image}`}
                   alt={product?.name}
                 />
               </Col>
