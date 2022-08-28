@@ -13,7 +13,7 @@ const Product = ({ product }) => {
         // title="Default size card"
         // extra={<a href="#">More</a>}
         style={{
-          width: 330,
+          width: 300,
           // height: 400
         }}
       >
