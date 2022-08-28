@@ -89,8 +89,8 @@ const ProductScreen = ({ history, match }) => {
             <Meta title={product?.name} />
             <Row>
               <Col md={6}>
-                <Image
-                  src={"http://localhost:8000/" + product.image}
+                <img
+                  src={product.image}
                   alt={product?.name}
                   fluid
                 />

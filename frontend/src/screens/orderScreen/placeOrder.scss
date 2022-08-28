@@ -1,0 +1,6 @@
+@import "../../style/main.scss";
+
+.place-order-container{
+    @include centerWithValue(center, center, 80%, 100%);
+    margin: 20px auto
+}

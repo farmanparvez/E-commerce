@@ -1,7 +1,7 @@
 
 
 
-@mixin center ($val1, $val2) {
+@mixin center () {
     display: flex;
     justify-content: center;
     align-items: center;

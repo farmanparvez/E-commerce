@@ -12,7 +12,7 @@ exports.addOrder = catchAsync(async (req, res, next) => {
     shippingPrice,
     totalPrice,
   } = req.body;
-  // console.log(req.user)
+  console.log(req.body)
   const order = await Order.create({
     orderItems,
     user: req.user._id,
