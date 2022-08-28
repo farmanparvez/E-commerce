@@ -75,7 +75,7 @@
       height: 150px;
       min-width: 314px;
       // gap: 1em;
-      margin: 0 10px;
+      margin: 10px 10px;
       border-radius: 10px;
       @include flex;
       //   flex-direction: column;
@@ -94,6 +94,9 @@
     }
     .middle-col {
       background: #555 !important;
+      // @media only screen and (max-width: 600px) {
+        
+      // }
       h1 {
         color: #fff;
       }

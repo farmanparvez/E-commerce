@@ -90,9 +90,8 @@ const ProductScreen = ({ history, match }) => {
             <Row>
               <Col md={6}>
                 <img
-                  src={product.image}
+                  src={"http://localhost:8000/" + product.image}
                   alt={product?.name}
-                  fluid
                 />
               </Col>
               <Col md={3}>
