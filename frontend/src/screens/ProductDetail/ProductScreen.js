@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   Row,
   Col,
-  Image,
+  // Image,
   ListGroup,
   Card,
   Button,
@@ -91,13 +91,13 @@ const ProductScreen = ({ history, match }) => {
           {/* <span>{window.location.href}</span> */}
             <Meta title={product?.name} />
             <Row>
-              <Col md={6}>
-                <img
+              <Col className="img-container" >
+                <img 
                   src={`${url}${product.image}`}
-                  alt={product?.name}
+                  alt={`${product?.name}`}
                 />
               </Col>
-              <Col md={3}>
+              <Col >
                 <ListGroup variant="flush">
                   <ListGroup.Item>
                     <h3>{product.name}</h3>
@@ -114,7 +114,7 @@ const ProductScreen = ({ history, match }) => {
                   </ListGroup.Item>
                 </ListGroup>
               </Col>
-              <Col md={3}>
+              <Col>
                 <Card>
                   <ListGroup variant="flush">
                     <ListGroup.Item>
@@ -181,8 +181,8 @@ const ProductScreen = ({ history, match }) => {
                 </Card>
               </Col>
             </Row>
-            <Row>
-              <Col md={6}>
+            <Row style={{marginTop: '20px'}}>
+              <Col >
                 <h2>Reviews</h2>
                 {product?.reviews?.length === 0 && (
                   <Message>No Reviews</Message>

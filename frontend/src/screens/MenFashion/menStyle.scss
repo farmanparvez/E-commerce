@@ -7,7 +7,9 @@
     @include borderBottom(9%);
   }
   .men-product-container {
-    @include flex;
+    @include flex();
+    gap: 3em 2em;
+    flex-wrap: wrap;
     background: whitesmoke;
     width: 96%;
     padding: 100px 20px;

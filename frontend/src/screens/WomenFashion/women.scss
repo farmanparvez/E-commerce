@@ -8,6 +8,8 @@
   }
   .women-product-container {
     @include flex;
+    gap: 3em 2em;
+    flex-wrap: wrap;
     background: whitesmoke;
     width: 96%;
     padding: 100px 20px;
