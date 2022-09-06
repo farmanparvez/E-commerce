@@ -2,7 +2,7 @@ import React from "react";
 // import { Container, Row, Col } from "react-bootstrap";
 import playStore from "../../asset/play-store.png"
 import appstore from "../../asset/app-store.png"
-import white from "../../asset/logo-white.png"
+// import white from "../../asset/logo-white.png"
 import "./layout.scss"
 
 const Footer = () => {

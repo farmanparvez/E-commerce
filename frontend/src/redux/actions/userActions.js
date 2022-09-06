@@ -36,7 +36,7 @@ export const deleteUser = createAsyncThunk("user/deleteUser", async (id, thunkAP
 
 export const editUser = createAsyncThunk("user/editUser", async (data, thunkAPI) => {
     try {
-        console.log(data)
+        // console.log(data)
         const res = await editUserAPI(data)
         // console.log(res)
         return res

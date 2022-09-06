@@ -16,7 +16,7 @@ const UserListScreen = ({ history }) => {
 
   const userList = useSelector((state) => state.user)
   const { isLoading:loading, error, users, userInfo, stateUpdated, isMessage, isSuccess, isError, isVisible } = userList
-  console.log(isVisible)
+  // console.log(isVisible)
   // const userLogin = useSelector((state) => state.user)
   // const { userInfo } = userLogin
 

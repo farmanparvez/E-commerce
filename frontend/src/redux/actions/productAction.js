@@ -63,7 +63,7 @@ export const updateProductByID = createAsyncThunk(
   "product/updateProductByID",
   async ({ productData, id }, thunkAPI) => {
     try {
-      console.log(productData, id);
+      // console.log(productData, id);
       // const data = {}
       // const
       const res = await updateProductByIdAPI(productData, id);
@@ -127,14 +127,14 @@ export const getProductByID = createAsyncThunk(
 export const addCartItem = createAsyncThunk(
   "addCartItem/addCartItemInLocalStorege",
   async ({ val, history }, thunkAPI) => {
-    console.log(val);
+    // console.log(val);
     const existItem =
       localStorage.getItem("cartItem")?.length > 0 &&
       JSON.parse(localStorage.getItem("cartItem")).find(
         (x) => x._id === val._id && x.user === val.user
       );
 
-      console.log(existItem)
+      // console.log(existItem)
     if (existItem) return;
     // console.log(val);
     const oldCartItems = localStorage.getItem("cartItem")
@@ -179,7 +179,7 @@ export const createOrder = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const res = await placeOrderAPI(data);
-      console.log(res);
+      // console.log(res);
       return res;
     } catch (error) {
       const message =
@@ -211,7 +211,7 @@ export const topratingproducts = createAsyncThunk(
     try {
       // console.log(data)
       const res = await topRatingProductsAPI();
-      console.log(res);
+      // console.log(res);
       return res;
     } catch (error) {
       const message =

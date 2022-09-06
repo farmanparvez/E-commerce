@@ -11,7 +11,7 @@ import { editUser } from '../redux/actions/userActions'
 
 const UserEditScreen = ({ username, email: userEmail, isAdmin: userIsAdmin, _id }) => {
   // const userId = match.params.id
-  console.log(userIsAdmin)
+  // console.log(userIsAdmin)
   const [name, setName] = useState(username)
   const [email, setEmail] = useState(userEmail)
   const [isAdmin, setIsAdmin] = useState(userIsAdmin)

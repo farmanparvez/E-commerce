@@ -9,7 +9,7 @@ const MenContent = () => {
     (state) => state.userProduct
   );
 
-  console.log(menProduct);
+  // console.log(menProduct);
 
   const dispatch = useDispatch();
   useEffect(() => {

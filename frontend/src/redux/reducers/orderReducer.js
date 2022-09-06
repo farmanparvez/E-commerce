@@ -60,7 +60,7 @@ const orderSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getUserOrder.fulfilled, (state, action) => {
-        console.log(action.payload)
+        // console.log(action.payload)
         state.isLoading = false;
         state.isSuccess = true;
         state.orders = action.payload.orders;

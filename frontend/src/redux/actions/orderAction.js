@@ -5,7 +5,7 @@ export const getOrderDetails = createAsyncThunk("order/getOrderDetails", async (
     try {
         // console.log(data)
         const res = await getOrderDetailsAPI(data)
-        console.log(res)
+        // console.log(res)
         return res
     } catch (error) {
         const message = error?.response?.data?.message || error?.message || error.toString()
@@ -29,7 +29,7 @@ export const getUserOrder = createAsyncThunk("order/getUserOrder", async (data, 
     try {
         // console.log(data)
         const res = await getUserOrderAPI(data)
-        console.log(res)
+        // console.log(res)
         return res
     } catch (error) {
         const message = error?.response?.data?.message || error?.message || error.toString()
@@ -41,7 +41,7 @@ export const getOrders = createAsyncThunk("order/getOrders", async (data, thunkA
     try {
         // console.log(data)
         const res = await getOrdersAPI(data)
-        console.log(res)
+        // console.log(res)
         return res
     } catch (error) {
         const message = error?.response?.data?.message || error?.message || error.toString()
@@ -53,7 +53,7 @@ export const updateOrderToDelivered = createAsyncThunk("order/updateOrderToDeliv
     try {
         // console.log(data)
         const res = await updateOrderToDeliveredAPI(data)
-        console.log(res)
+        // console.log(res)
         return res
     } catch (error) {
         const message = error?.response?.data?.message || error?.message || error.toString()

@@ -6,7 +6,7 @@ import UserEditScreen from './UserEditScreen'
 
 const EditUserModal = () => {
     const { isVisible, modalData } = useSelector(state => state.user)
-    console.log(isVisible)
+    // console.log(isVisible)
     const dispatch = useDispatch()
   return (
     <CustomModal 

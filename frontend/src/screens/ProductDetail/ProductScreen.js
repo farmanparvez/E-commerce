@@ -33,7 +33,7 @@ const ProductScreen = ({ history, match }) => {
 
   const dispatch = useDispatch();
 
-  const { isLoading, isError, isMessage, product, stateUpdated } = useSelector(
+  const { isLoading, isError, isMessage,product, stateUpdated } = useSelector(
     (state) => state.product
   );
  console.log(product)
@@ -44,11 +44,6 @@ const ProductScreen = ({ history, match }) => {
   }, [dispatch, stateUpdated, match.params.id]);
 
   useEffect(() => {
-    // if (successProductReview) {
-    //   setRating(0);
-    //   setComment("");
-    // }
-    // if (!product._id || product._id !== match.params.id) {
     dispatch(getProductByID(match.params.id));
   }, [dispatch, match]);
 

@@ -18,7 +18,7 @@ const PlaceOrderScreen = ({ history }) => {
   const cart = useSelector((state) => state.product);
   const { isLoading, isSuccess, isError, isMessage, order } = cart;
 
-  console.log(cart.cartItem);
+  // console.log(cart.cartItem);
   const cartProduct = cart.cartItem?.filter(
     (val) => val.user === JSON.parse(localStorage.getItem("userInfo"))._id
   );

@@ -35,7 +35,7 @@ const userSlice = createSlice({
       localStorage.removeItem('userInfo')
     },
     setUserInfo: (state, action) => {
-      console.log(action.payload)
+      // console.log(action.payload)
       state.userInfo = action.payload
     }
   },

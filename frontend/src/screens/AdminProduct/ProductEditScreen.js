@@ -27,7 +27,7 @@ const ProductEditScreen = ({ data, isLoading }) => {
   const dispatch = useDispatch();
 
   const [form] = Form.useForm();
-  console.log(data)
+  // console.log(data)
 
   const onFinish = async (values) => {
     console.log("Received values of form: ", values);
@@ -37,7 +37,7 @@ const ProductEditScreen = ({ data, isLoading }) => {
 // console.log(image1)
     // const image = values.upload[0].then((res) => console.log(res))
     const image = await Promise.resolve(values.upload[0]);
-    console.log(image);
+    // console.log(image);
     const productData = {
       name: values.name,
       price: values.price,
@@ -129,7 +129,7 @@ const ProductEditScreen = ({ data, isLoading }) => {
   // console.log(image);
   // console.log(`http://localhost:8000/${image}`);
   const normFile = (e) => {
-    console.log("Upload event:", e);
+    // console.log("Upload event:", e);
     const file = e.file.originFileObj;
     const formData = new FormData();
     formData.append("image", file);
@@ -157,7 +157,7 @@ const ProductEditScreen = ({ data, isLoading }) => {
   // const onFinishFailed = () => {
   //   message.error('Submit failed!');
   // };
-console.log("http://localhost:8000/" + data?.image)
+// console.log("http://localhost:8000/" + data?.image)
   return (
     <>
     {data && <img style={{width: '300px', height: '300px'}} scr={"http://localhost:8000/" + data?.image} alt=''/>}

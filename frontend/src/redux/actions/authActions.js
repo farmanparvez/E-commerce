@@ -6,7 +6,7 @@ export const login = createAsyncThunk("auth/authLogin", async (data, thunkAPI) =
     try {
         // console.log(data)
         const res = await loginAPI(data)
-        console.log(res)
+        // console.log(res)
         thunkAPI.dispatch(setUserInfo(res.user))
         return res
     } catch (error) {

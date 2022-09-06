@@ -29,7 +29,7 @@ const ProfileScreen = ({ location, history }) => {
   const { orders, isLoading, isError, isMessage } = useSelector(
     (state) => state.order
   );
-  console.log(orders);
+  // console.log(orders);
   // const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   // const { success } = userUpdateProfile;
 

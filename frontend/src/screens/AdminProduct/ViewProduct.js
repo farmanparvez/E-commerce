@@ -7,7 +7,7 @@ import Modal from "react-bootstrap/Modal";
 
 const ViewProduct = () => {
   const { data: product } = useSelector((state) => state.product);
-  console.log(product.image)
+  // console.log(product.image)
   // console.log("http://localhost:3000/" + product.image)
   return (
     <div>

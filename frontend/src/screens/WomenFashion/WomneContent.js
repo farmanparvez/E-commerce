@@ -8,7 +8,7 @@ const WomneContent = () => {
   const { isLoading, isError, womenProduct } = useSelector(
     (state) => state.userProduct
   );
-  console.log(womenProduct);
+  // console.log(womenProduct);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getWomenProduct({ type: "female" }));

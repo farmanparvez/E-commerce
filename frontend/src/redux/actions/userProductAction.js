@@ -3,7 +3,7 @@ import { getProductByProductTypeAPI } from "../../service/userProductAPI";
 
 export const getMenProduct = createAsyncThunk("product/getMenProduct", async (data, thunkAPI) => {
     try {
-        console.log(data)
+        // console.log(data)
         const res = await getProductByProductTypeAPI(data)
         // console.log(res)
         return res.product
@@ -14,7 +14,7 @@ export const getMenProduct = createAsyncThunk("product/getMenProduct", async (da
 })
 export const getWomenProduct = createAsyncThunk("product/getWomenProduct", async (data, thunkAPI) => {
     try {
-        console.log(data)
+        // console.log(data)
         const res = await getProductByProductTypeAPI(data)
         // console.log(res)
         return res.product
@@ -25,7 +25,7 @@ export const getWomenProduct = createAsyncThunk("product/getWomenProduct", async
 })
 export const getElectronicsProduct = createAsyncThunk("product/getElectronicsProduct", async (data, thunkAPI) => {
     try {
-        console.log(data)
+        // console.log(data)
         const res = await getProductByProductTypeAPI(data)
         // console.log(res)
         return res.product
