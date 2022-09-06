@@ -14,6 +14,7 @@ import Message from "../components/Message";
 // import { addToCart } from '../actions/cartActions'
 import { removeFromCart, addCartItem } from "../redux/actions/productAction";
 import Container from "../components/Container";
+import {url} from "../utils/url"
 
 const CartScreen = ({ match, location, history }) => {
   const [cartItems, setCardItems] = useState([]);
@@ -75,7 +76,7 @@ const CartScreen = ({ match, location, history }) => {
                   <Row>
                     <Col md={2}>
                       <Image
-                        src={"http://localhost:3000/" + item.image}
+                        src={url + item.image}
                         alt={item.name}
                         fluid
                         rounded
