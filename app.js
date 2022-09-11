@@ -1,6 +1,8 @@
-const path = require('path')
+const path = require("path");
 const express = require("express");
 const AppError = require("./utils/AppError");
+const helmet = require("helmet");
+const rateLimit = require('express-rate-limit')
 const globalErroHander = require("./controllers/gobalErrorController");
 const authRouter = require("./routes/authRouter");
 const userRouter = require("./routes/userRouter");
@@ -9,7 +11,17 @@ const uploadRouter = require("./routes/uploadRouter");
 const orderRouter = require("./routes/orderRouter");
 const app = express();
 
-app.use(express.json());
+//Golobal Middleware
+app.use(helmet());
+
+const limiter = rateLimit({
+  max: 100,
+  windowMs: 60 * 60 * 100,
+  message: 'Too many request from thi IP, Please try again in an hour'
+})
+
+app.use('/api', limiter)
+app.use(express.json({ limit: "10kb" }));
 
 // app.use(express.static(path.join(__dirname, 'uploads')));
 
@@ -23,10 +35,12 @@ app.use("/api/uploads", uploadRouter);
 app.use(`/uploads`, express.static(`uploads`));
 // app.use(express.static(path.join(__dirname, './uploads')));
 
-if(process.env.NODE_ENV === 'production') {
-  app.use(express.static('frontend/build'))
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
 
-  app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')));
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+  );
 }
 
 app.all("*", (req, res, next) => {
