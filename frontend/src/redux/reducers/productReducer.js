@@ -31,7 +31,11 @@ const productSlice = createSlice({
     itemsPrice: '',
     order: {},
     stateUpdated: false,
-    topRatedProducts: []
+    topRatedProducts: [],
+    count: null,
+
+    // latestProduct
+    page: { page: 1, limit: 12},
   },
   reducers: {
     reset: (state, action) => {
@@ -52,6 +56,9 @@ const productSlice = createSlice({
       // console.log(action.payload);
       state.paymentMethod = action.payload;
       // state.data = action.payload.data;
+    },
+    setPagination: (state, action) => {
+      state.page = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -96,6 +103,8 @@ const productSlice = createSlice({
         state.isLoading = false;
         // state.isSuccess = true;
         state.products = action.payload;
+        state.products = action.payload.product;
+        state.count = action.payload.count;
       })
       .addCase(getProduct.rejected, (state, action) => {
         state.isLoading = false;
@@ -211,5 +220,5 @@ const productSlice = createSlice({
   },
 });
 
-export const { reset, setModalVisible, savePaymentMethod } = productSlice.actions;
+export const { reset, setModalVisible, savePaymentMethod, setPagination } = productSlice.actions;
 export default productSlice.reducer;

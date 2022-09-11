@@ -3,19 +3,31 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../../redux/actions/productAction";
 import Product from "../../components/ProductCard/Product";
 import SpinContainer from "../../components/SpinContainer/SpinContainer";
-import { reset } from "../../redux/reducers/productReducer";
+import { reset, setPagination } from "../../redux/reducers/productReducer";
+import CustomPagination from "../../components/Pagination/CustomPagination";
+import { Link, useLocation } from "react-router-dom";
+import { Button } from "antd";
 
 const LatestProduct = () => {
-  const { isLoading, isError, products } = useSelector(
+  const { isLoading, isError, products, page: {page, limit}, count } = useSelector(
     (state) => state.product
   );
-
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    dispatch(getProduct());
+    // dispatch(getProduct({ page, limit }));
+    if(pathname === '/'){
+      dispatch(getProduct({ page: 1, limit: 8 }));
+    } else {
+      dispatch(getProduct({ page, limit }));
+    }
     return () => dispatch(reset());
-  }, [dispatch]);
+  }, [dispatch, page, limit, pathname]);
+
+  const onChange = (pageNumber) => {
+    dispatch(setPagination({ page: pageNumber, limit: 12 }));
+  };
 
   return (
     <div className="latest-product-wrapper">
@@ -35,6 +47,8 @@ const LatestProduct = () => {
             ))}
           </div>
           {/* </Row> */}
+          { pathname !== '/' && count > 12 && (<CustomPagination defaultCurrent={page} total={count} onChange={onChange}/>)}
+        { pathname === '/' && <Link to="/latest-product"><Button >More...</Button></Link>}
         </div>
       </SpinContainer>
     </div>

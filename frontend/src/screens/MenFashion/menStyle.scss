@@ -6,15 +6,21 @@
   .border-botom {
     @include borderBottom(9%);
   }
-  .men-product-container {
-    @include flex();
-    gap: 3em 2em;
-    flex-wrap: wrap;
+  .men-product-container{
     background: whitesmoke;
-    width: 96%;
-    padding: 100px 20px;
-    margin: 0 auto 0 auto;
-    border-radius: 10px;
+    @include flex();
+    flex-direction: column;
+    margin-bottom: 30px ;
+    padding-bottom: 30px;
+    .men-product-box {
+      @include flex();
+      gap: 2em;
+      flex-wrap: wrap;
+      width: 96%;
+      padding: 30px 20px;
+      margin: 0 auto 0 auto;
+      border-radius: 10px;
+    }
   }
 }
 

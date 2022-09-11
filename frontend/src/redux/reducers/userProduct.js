@@ -8,9 +8,19 @@ const userProductSlice = createSlice({
     isSuccess: false,
     isError: false,
     isMessage: null,
+    count: null,
+    page: { page: 1, limit: 12},
+
+    // MensProduct
     menProduct: [],
+    isErrorInMenProducts: false,
+    // WomrnProduct
     womenProduct: [],
+    isErrorInWomenProducts: false,
+    //ElectronicProduct
     electronicsProduct: [],
+    isErrorInElectronicProducts: false
+
   },
   reducers: {
     reset: (state, action) => {
@@ -18,7 +28,16 @@ const userProductSlice = createSlice({
       state.isSuccess = false;
       state.isError = false;
       state.isMessage = null;
+      // MensProduct
+      state.isErrorInMenProducts = false;
+      // WomrnProduct
+      state.isErrorInWomenProducts = false;
+      //ElectronicProduct
+      state.isErrorInElectronicProducts = false
     },
+    setPagination: (state, action) => {
+      state.page = action.payload
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -28,11 +47,12 @@ const userProductSlice = createSlice({
       .addCase(getMenProduct.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.menProduct = action.payload
+        state.menProduct = action.payload.product
+        state.count = action.payload.count
       })
       .addCase(getMenProduct.rejected, (state, action) => {
         state.isLoading = false;
-        state.isError = true;
+        state.isErrorInMenProducts = true;
         state.isMessage = action.payload;
       })
       .addCase(getWomenProduct.pending, (state, action) => {
@@ -41,12 +61,12 @@ const userProductSlice = createSlice({
       .addCase(getWomenProduct.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.womenProduct = action.payload
-        // console.log(action.payload)
+        state.womenProduct = action.payload.product
+        state.count = action.payload.count
       })
       .addCase(getWomenProduct.rejected, (state, action) => {
         state.isLoading = false;
-        state.isError = true;
+        state.isErrorInWomenProducts = true;
         state.isMessage = action.payload;
       })
       .addCase(getElectronicsProduct.pending, (state, action) => {
@@ -55,15 +75,16 @@ const userProductSlice = createSlice({
       .addCase(getElectronicsProduct.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.electronicsProduct = action.payload
+        state.electronicsProduct = action.payload.product
+        state.count = action.payload.count
       })
       .addCase(getElectronicsProduct.rejected, (state, action) => {
         state.isLoading = false;
-        state.isError = true;
+        state.isErrorInElectronicProducts = true;
         state.isMessage = action.payload;
       })
   },
 });
 
-export const { reset } = userProductSlice.actions;
+export const { reset, setPagination } = userProductSlice.actions;
 export default userProductSlice.reducer;

@@ -99,7 +99,7 @@ export const getProduct = createAsyncThunk(
     try {
       const res = await getProductAPI(data);
       // console.log(res)
-      return res.product;
+      return res;
     } catch (error) {
       const message =
         error.response.data.message || error.message || error.toString();

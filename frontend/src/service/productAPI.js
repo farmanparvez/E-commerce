@@ -1,7 +1,7 @@
 import { postRequest, getRequest, axiosRequest, deleteRequest } from "../utils/request";
 // const api = 'api'
 
-export const getProductAPI = () => getRequest(`/api/products`)
+export const getProductAPI = ({ page, limit }) => getRequest(`/api/products?page=${page}&limit=${limit}`)
 export const getProductByIdAPI = id => getRequest(`/api/product/${id}`)
 
 // image

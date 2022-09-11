@@ -22,6 +22,7 @@ import OrderListScreen from './screens/OrderListScreen'
 import MenFashion from './screens/MenFashion/MenFashion'
 import WominFashion from './screens/WomenFashion/WominFashion'
 import Electronics from './screens/Electronics/Electronics'
+import LatestProduct from './screens/Home/LastestProductPage'
 // import { ToastContainer, toast } from 'react-toastify';
 // import { useDispatch } from 'react-redux'
 // import { getUserInfo } from './redux/actions/userActions'
@@ -68,6 +69,7 @@ const App = () => {
             component={HomeScreen}
             exact
           />
+          <Route path='/latest-product' component={LatestProduct} exact />
           <Route path='/mens-fashion' component={MenFashion} exact />
           <Route path='/womens-fashion' component={WominFashion} exact />
           <Route path='/electronics' component={Electronics} exact />

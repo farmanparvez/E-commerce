@@ -6,7 +6,7 @@ export const getMenProduct = createAsyncThunk("product/getMenProduct", async (da
         // console.log(data)
         const res = await getProductByProductTypeAPI(data)
         // console.log(res)
-        return res.product
+        return res
     } catch (error) {
         const message = error.response.data.message || error.message || error.toString()
         return thunkAPI.rejectWithValue(message)
@@ -17,7 +17,7 @@ export const getWomenProduct = createAsyncThunk("product/getWomenProduct", async
         // console.log(data)
         const res = await getProductByProductTypeAPI(data)
         // console.log(res)
-        return res.product
+        return res
     } catch (error) {
         const message = error.response.data.message || error.message || error.toString()
         return thunkAPI.rejectWithValue(message)
@@ -28,7 +28,7 @@ export const getElectronicsProduct = createAsyncThunk("product/getElectronicsPro
         // console.log(data)
         const res = await getProductByProductTypeAPI(data)
         // console.log(res)
-        return res.product
+        return res
     } catch (error) {
         const message = error.response.data.message || error.message || error.toString()
         return thunkAPI.rejectWithValue(message)

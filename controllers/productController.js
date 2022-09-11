@@ -1,7 +1,7 @@
 const catchAsync = require("../utils/catchAsync");
 const Product = require('../models/productModal')
 const User = require('../models/auth')
-const AppError = require('../utils/AppError')
+const AppError = require('../utils/AppError');
 
 // <============================================================admin=====================================================>
 exports.getAdminProductByID = catchAsync( async(req, res, next) => {
@@ -70,12 +70,43 @@ exports.updateAdminProductByID = catchAsync( async(req, res, next) => {
 
 // <=================================================================user=========================================================>
 
+class APIFeatures {
+    constructor(api, query){
+        this.api = api,
+        this.query = query
+    }
+// console.log(query)
+    pagination(){
+        const page = this.query.page
+        const limit = this.query.limit
+        const skip = (page - 1) * limit
+        this.api = this.api.skip(skip).limit(limit)
+        return this
+    }
+
+}
+
+// console.log()
+
 exports.getProduct = catchAsync( async(req, res, next) => {
     // const {name, price, image, brand, category, countInStock, numReviews, description} = req.body
-    const product = await Product.find() 
+    // console.log(req.query)
+    // const page = req.query.page
+    // const limit = req.query.limit
+    // const skip = (page - 1) * limit
+
+//  const query = query
+//  console.log(query)
+
+    // const product = await Product.find().skip(skip).limit(limit)
+    const count = await Product.find()
+    const query = new APIFeatures(Product.find(), req.query).pagination()
+    // console.log(product)
+    const product = await query.api
     res.status(200).json({
         status: 'Success',
-        product
+        count: count.length,
+        product,
     })
 })
 
@@ -132,8 +163,13 @@ exports.getProductByType = catchAsync( async( req, res, next ) => {
     // const { type } = req.body
     // console.log(req.params)
     if(!req.params.type) return next(new AppError('Please Provide Product Type', 400))
-    const product = await Product.find({ type: req.params.type })
+    
+    const count = await Product.find({ type: req.params.type })
+    const query = new APIFeatures(Product.find({ type: req.params.type }), req.query).pagination()
+// console.log(query)
+    const product = await query.api
     res.status(200).json({
+        count: count.length,
         status: 'Success',
         product
     })

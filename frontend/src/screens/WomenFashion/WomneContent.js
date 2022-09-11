@@ -3,16 +3,33 @@ import { getWomenProduct } from "../../redux/actions/userProductAction";
 import { useDispatch, useSelector } from "react-redux";
 import SpinContainer from "../../components/SpinContainer/SpinContainer";
 import Product from "../../components/ProductCard/Product";
+import { useLocation, Link } from "react-router-dom";
+import { setPagination, reset } from "../../redux/reducers/userProduct";
+import CustomPagination from "../../components/Pagination/CustomPagination";
+import { Button } from "antd"
 
 const WomneContent = () => {
-  const { isLoading, isError, womenProduct } = useSelector(
+  const { isLoading, isErrorInWomenProducts, womenProduct, page: {page, limit}, count  } = useSelector(
     (state) => state.userProduct
   );
+  const { pathname}  = useLocation();
+
   // console.log(womenProduct);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getWomenProduct({ type: "female" }));
-  }, [dispatch]);
+    if(pathname === '/'){
+      dispatch(getWomenProduct({ type: "female",  page: 1, limit: 8 }));
+    } else {
+      dispatch(getWomenProduct({ type: "female",  page, limit }));
+    }
+    return () => dispatch(reset())
+  }, [dispatch, pathname, page, limit]);
+
+  const onChange = (pageNumber) => {
+    // dispatch(getMenProduct({ type: "male", page: pageNumber, limit: 12 }));
+    dispatch(setPagination({ page: pageNumber, limit: 12 }));
+  };
+
 
   return (
     <div className="women-product-wrapper">
@@ -22,14 +39,18 @@ const WomneContent = () => {
         spinning={isLoading}
         value={true}
         data={womenProduct}
-        isError={isError}
+        isError={isErrorInWomenProducts}
         spinStyle={"spinStyle"}
       >
-        <div className="women-product-container">
+       <div className="women-product-container">
+        <div className="women-product-box">
           {womenProduct?.map((data) => (
             <Product key={data._id} product={data} />
           ))}
         </div>
+        { pathname !== '/' && count > 12 && (<CustomPagination defaultCurrent={page} total={count} onChange={onChange}/>)}
+        { pathname === '/' && <Link to="/womens-fashion"><Button >More...</Button></Link>}
+       </div>
       </SpinContainer>
     </div>
   );
