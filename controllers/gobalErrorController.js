@@ -19,6 +19,8 @@ const sendProdError = (err, res) => {
             status: 'error',
             message: 'Something went wrong',
             // stack: err.stack,
+            err,
+            stack: err.stack,
         })
     }
 
