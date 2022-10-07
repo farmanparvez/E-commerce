@@ -40,8 +40,9 @@ app.use("/api", productRouter);
 app.use("/api/order", orderRouter);
 app.use("/api/uploads", uploadRouter);
 
+// app.use(`/uploads`, express.static(`uploads`));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // app.use(express.static(__dirname));
-app.use(`/uploads`, express.static(`uploads`));
 // app.use(`/uploads`, express.static(`uploads`));
 // app.use(express.static(path.join(__dirname, './uploads')));
 // app.use(express.static(path.resolve(__dirname, 'uploads')));
