@@ -4,7 +4,7 @@ const AppError = require('../utils/AppError')
 const storage = multer.diskStorage({
     destination(req, file, cb) {
     //   cb(null, './uploads')
-    cb(null, path.join(__dirname, '/uploads/'));
+    cb(null, path.join(__dirname, '/uploads'));
     },
     filename(req, file, cb) {
         const ext = file.mimetype.split('/')[1];
