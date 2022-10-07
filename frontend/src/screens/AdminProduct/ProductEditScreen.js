@@ -198,8 +198,8 @@ const ProductEditScreen = ({ data, isLoading }) => {
         >
           <Upload
             maxCount={1}
-            accept="image/*"
-            // customRequest={uploadImageCuston}
+            // accept="image/*"
+            customRequest={"false"}
             // onChange={handleOnChange}
             listType="picture-card"
             // fileList={defaultListOfFiles}
