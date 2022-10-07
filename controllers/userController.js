@@ -36,7 +36,7 @@ exports.updateUserByID = catchAsync(async (req, res, next) => {
 });
 
 exports.uploadImage = catchAsync( async (req, res, next) => {
-    // console.log(req.file)
+    console.log(req.file)
     res.send(`${req.file.path}`)
 })
 
