@@ -3,6 +3,8 @@ const express = require("express");
 const AppError = require("./utils/AppError");
 const helmet = require("helmet");
 const rateLimit = require('express-rate-limit')
+const mongoSanitize = require('express-mongo-sanitize')
+const xss = require('xss-clean')
 const globalErroHander = require("./controllers/gobalErrorController");
 const authRouter = require("./routes/authRouter");
 const userRouter = require("./routes/userRouter");
@@ -19,10 +21,16 @@ const limiter = rateLimit({
   windowMs: 60 * 60 * 100,
   message: 'Too many request from thi IP, Please try again in an hour'
 })
-
+// limit no of request per hour
 app.use('/api', limiter)
-app.use(express.json({ limit: "10kb" }));
 
+// body parser
+app.use(express.json({ limit: "10kb" }));
+// Data sanitization againt nosql query injection 
+app.use(mongoSanitize())
+
+// Data sanitization againt xss
+app.use(xss())
 // app.use(express.static(path.join(__dirname, 'uploads')));
 
 // app.get('/', (req, res) => res.send('server is running'))
