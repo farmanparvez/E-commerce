@@ -1,7 +1,7 @@
 node_modules/
 /config/production.json
 /config/default.json
-
+/client/package.lock.json
 
 
 .DS_Store
