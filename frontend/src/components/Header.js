@@ -27,7 +27,7 @@ const Header = () => {
       <Navbar  style={{background: 'aliceblue'}} variant='light' expand='lg' collapseOnSelect>
         <Container fluid className='mx-5'>
           <LinkContainer to='/'>
-            <Navbar.Brand ><strong style={{fontSize:'1.5em', fontWeight:'700'}}>ProShop</strong></Navbar.Brand>
+            <Navbar.Brand ><strong style={{fontSize:'1.5em', fontWeight:'700'}}>EShop</strong></Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
