@@ -26,7 +26,7 @@ import LatestProduct from './screens/Home/LastestProductPage'
 // import { ToastContainer, toast } from 'react-toastify';
 // import { useDispatch } from 'react-redux'
 // import { getUserInfo } from './redux/actions/userActions'
-import "./bootstrap.min.css";
+// import "./bootstrap.min.css";
 import "./index.css";
 import "./style/main.scss"
 
