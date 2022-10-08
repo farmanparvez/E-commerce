@@ -56,6 +56,7 @@ if (process.env.NODE_ENV === "production") {
   );
 }
 
+// console.log()
 app.all("*", (req, res, next) => {
   // const error = new Error (`can't find ${req.originalUrl} on this server`)
   // error.status = 'Failed',
