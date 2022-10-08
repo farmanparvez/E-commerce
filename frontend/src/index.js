@@ -5,9 +5,9 @@ import { Provider } from "react-redux";
 import stores from "./stores";
 import "./bootstrap.min.css";
 import "./index.css";
-import App from "./App";
 import "antd/dist/antd.css";
 import "./style/main.scss"
+import App from "./App";
 // import Container from "./components/Container";
 import * as serviceWorker from "./serviceWorker";
 
