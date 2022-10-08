@@ -8,7 +8,7 @@ const userSlice = createSlice({
     isSuccess: false,
     isError: false,
     isMessage: null,
-    userInfo: JSON.parse(localStorage.getItem('userInfo')),
+    userInfo: localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null,
     users: [],
     stateUpdated: false,
     isVisible: false,
