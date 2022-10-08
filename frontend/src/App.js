@@ -26,10 +26,10 @@ import LatestProduct from './screens/Home/LastestProductPage'
 // import { ToastContainer, toast } from 'react-toastify';
 // import { useDispatch } from 'react-redux'
 // import { getUserInfo } from './redux/actions/userActions'
-import "./bootstrap.min.css";
-import "./index.css";
-import "antd/dist/antd.css";
-import "./style/main.scss"
+// import "./bootstrap.min.css";
+// import "./index.css";
+// import "antd/dist/antd.css";
+// import "./style/main.scss"
 
 const App = () => {
   // const dispatch = useDispatch()

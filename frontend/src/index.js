@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 // import store from './store'
 import stores from "./stores";
-import "./bootstrap.min.css";
-import "./index.css";
-import "antd/dist/antd.css";
-import "./style/main.scss"
+// import "./bootstrap.min.css";
+// import "./index.css";
+// import "antd/dist/antd.css";
+// import "./style/main.scss"
 import App from "./App";
 // import Container from "./components/Container";
 import * as serviceWorker from "./serviceWorker";
