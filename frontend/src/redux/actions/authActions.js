@@ -1,12 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { loginAPI, registerAPI } from "../../service/authAPI.js";
 import { setUserInfo } from "../reducers/userReducer.js";
+import Cookies from 'js-cookie'
 
 export const login = createAsyncThunk("auth/authLogin", async (data, thunkAPI) => {
     try {
         // console.log(data)
         const res = await loginAPI(data)
-        // console.log(res)
+        console.log(res)
+        Cookies.set("reactToken", res.token)
         thunkAPI.dispatch(setUserInfo(res.user))
         return res
     } catch (error) {

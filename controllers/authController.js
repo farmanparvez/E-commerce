@@ -28,7 +28,7 @@ exports.signUp = catchAsync(async (req, res, next) => {
     httpOnly: true,
   };
   if (process.env.NODE_ENV === "production") cookieOption.secure = true;
-  res.cookie("jwt", token, cookieOption);
+  res.cookie("token", token, cookieOption);
 
   res.status(200).json({
     status: "Success",
@@ -58,7 +58,7 @@ exports.login = catchAsync(async (req, res, next) => {
     httpOnly: true,
   };
   if (process.env.NODE_ENV === "production") cookieOption.secure = true;
-  res.cookie("jwt", token, cookieOption);
+  res.cookie("token", token, cookieOption);
 
   res.status(200).json({
     status: "Success",

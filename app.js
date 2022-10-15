@@ -5,6 +5,7 @@ const helmet = require("helmet");
 const rateLimit = require('express-rate-limit')
 const mongoSanitize = require('express-mongo-sanitize')
 const xss = require('xss-clean')
+const cookiesParser = require('cookie-parser')
 const globalErroHander = require("./controllers/gobalErrorController");
 const authRouter = require("./routes/authRouter");
 const userRouter = require("./routes/userRouter");
@@ -14,6 +15,7 @@ const orderRouter = require("./routes/orderRouter");
 const app = express();
 
 //Golobal Middleware
+app.use(cookiesParser())
 app.use(helmet());
 
 const limiter = rateLimit({
