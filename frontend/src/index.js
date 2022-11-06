@@ -11,12 +11,12 @@ import App from "./App"
 // import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-  <Provider store={stores}>
+  // <Provider store={stores}>
     {/* <Container> */}
       {/* <App /> */}
       <div><h1>hello</h1></div>
     {/* </Container> */}
-  </Provider>,
+  // </Provider>,
   document.getElementById("root")
 );
 
