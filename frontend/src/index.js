@@ -6,14 +6,12 @@ import { Provider } from "react-redux";
 // import "./bootstrap.min.css";
 // import "./index.css";
 // import "./style/main.scss"
-// import App from "./App";
+import App from "./App"
 // import Container from "./components/Container";
 // import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-  <div>
-    <h1>hello</h1>
-  </div>,
+      <App />,
   document.getElementById("root")
 );
 
