@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 // import store from './store'
-// import stores from "./stores";
+import stores from "./stores";
 // import "./bootstrap.min.css";
 // import "./index.css";
 // import "./style/main.scss"
@@ -11,7 +11,11 @@ import App from "./App"
 // import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-      <App />,
+  <Provider store={stores}>
+    {/* <Container> */}
+      <App />
+    {/* </Container> */}
+  </Provider>,
   document.getElementById("root")
 );
 
