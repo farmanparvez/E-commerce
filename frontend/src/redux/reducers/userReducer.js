@@ -9,7 +9,7 @@ const userSlice = createSlice({
     isError: false,
     isMessage: null,
     // userInfo: null,
-    userInfo: localStorage.getItem('userInfo') && localStorage.getItem('userInfo') !== undefined ? JSON.parse(localStorage.getItem('userInfo')) : null,
+    userInfo: localStorage.getItem('userInfo') && localStorage.getItem('userInfo') !== undefined ? JSON.parse(localStorage.getItem('userInfo')) : '',
     users: [],
     stateUpdated: false,
     isVisible: false,
