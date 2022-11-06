@@ -15,11 +15,10 @@ const userSlice = createSlice({
     isMessage: null,
     // userInfo: null,
     userInfo:
-      localStorage.getItem("userInfo") &&
-      localStorage.getItem("userInfo") !== null &&
-      localStorage.getItem("userInfo") !== undefined
-        ? JSON.parse(localStorage.getItem("userInfo"))
-        : null,
+      !localStorage.getItem("userInfo") ||
+      localStorage.getItem("userInfo") === undefined
+        ? null
+        : JSON.parse(localStorage.getItem("userInfo")),
     users: [],
     stateUpdated: false,
     isVisible: false,
