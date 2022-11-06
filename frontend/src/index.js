@@ -13,7 +13,8 @@ import App from "./App"
 ReactDOM.render(
   <Provider store={stores}>
     {/* <Container> */}
-      <App />
+      {/* <App /> */}
+      <div><h1>hello</h1></div>
     {/* </Container> */}
   </Provider>,
   document.getElementById("root")
