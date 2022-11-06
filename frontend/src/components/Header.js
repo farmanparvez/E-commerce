@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { Route } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
@@ -8,10 +8,11 @@ import { useHistory, Link } from "react-router-dom";
 import { reset, clearUserInfo } from "../redux/reducers/userReducer";
 
 const Header = () => {
+  // const [first, setfirst] = useState(second)
   const { userInfo } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const history = useHistory();
-  console.log(userInfo)
+  console.log(userInfo);
 
   const logoutHandler = () => {
     // dispatch(logout())
@@ -49,7 +50,7 @@ const Header = () => {
               </LinkContainer>
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="username">
-                  <Link to="/profile" >Profile</Link>
+                  <Link to="/profile">Profile</Link>
                   <NavDropdown.Item onClick={logoutHandler}>
                     Logout
                   </NavDropdown.Item>

@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getUserInfo, getUsers, deleteUser, editUser } from "../actions/userActions";
+import {
+  getUserInfo,
+  getUsers,
+  deleteUser,
+  editUser,
+} from "../actions/userActions";
 
 const userSlice = createSlice({
   name: "user",
@@ -9,11 +14,16 @@ const userSlice = createSlice({
     isError: false,
     isMessage: null,
     // userInfo: null,
-    userInfo: localStorage.getItem('userInfo') && localStorage.getItem('userInfo') !== undefined ? JSON.parse(localStorage.getItem('userInfo')) : '',
+    userInfo:
+      localStorage.getItem("userInfo") &&
+      localStorage.getItem("userInfo") !== null &&
+      localStorage.getItem("userInfo") !== undefined
+        ? JSON.parse(localStorage.getItem("userInfo"))
+        : null,
     users: [],
     stateUpdated: false,
     isVisible: false,
-    modalData: null
+    modalData: null,
   },
   reducers: {
     reset: (state, action) => {
@@ -21,7 +31,7 @@ const userSlice = createSlice({
       state.isSuccess = false;
       state.isError = false;
       state.isMessage = null;
-      state.stateUpdated = false
+      state.stateUpdated = false;
       // state.userInfo = null
       // state.users = []
     },
@@ -31,14 +41,14 @@ const userSlice = createSlice({
       state.modalData = action.payload.data;
     },
     clearUserInfo: (state, action) => {
-      state.userInfo = null
-      localStorage.removeItem('Etoken')
-      localStorage.removeItem('userInfo')
+      state.userInfo = null;
+      localStorage.removeItem("Etoken");
+      localStorage.removeItem("userInfo");
     },
     setUserInfo: (state, action) => {
       // console.log(action.payload)
-      state.userInfo = action.payload
-    }
+      state.userInfo = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -49,7 +59,7 @@ const userSlice = createSlice({
         // console.log(action.payload)
         state.isLoading = false;
         state.isSuccess = true;
-        state.userInfo = action.payload
+        state.userInfo = action.payload;
       })
       .addCase(getUserInfo.rejected, (state, action) => {
         state.isLoading = false;
@@ -63,7 +73,7 @@ const userSlice = createSlice({
         // console.log(action.payload)
         state.isLoading = false;
         state.isSuccess = true;
-        state.users = action.payload
+        state.users = action.payload;
       })
       .addCase(getUsers.rejected, (state, action) => {
         state.isLoading = false;
@@ -77,7 +87,7 @@ const userSlice = createSlice({
         // console.log(action.payload)
         state.isLoading = false;
         state.isSuccess = true;
-        state.stateUpdated = true
+        state.stateUpdated = true;
       })
       .addCase(deleteUser.rejected, (state, action) => {
         state.isLoading = false;
@@ -91,16 +101,17 @@ const userSlice = createSlice({
         // console.log(action.payload)
         state.isLoading = false;
         state.isSuccess = true;
-        state.stateUpdated = true
-        state.isVisible = false
+        state.stateUpdated = true;
+        state.isVisible = false;
       })
       .addCase(editUser.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.isMessage = action.payload;
-      })
+      });
   },
 });
 
-export const { reset, setModalVisible, clearUserInfo, setUserInfo } = userSlice.actions;
+export const { reset, setModalVisible, clearUserInfo, setUserInfo } =
+  userSlice.actions;
 export default userSlice.reducer;
