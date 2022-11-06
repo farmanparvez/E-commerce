@@ -2,21 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 // import store from './store'
-import stores from "./stores";
+// import stores from "./stores";
 // import "./bootstrap.min.css";
 // import "./index.css";
 // import "./style/main.scss"
-import App from "./App"
+// import App from "./App";
 // import Container from "./components/Container";
 // import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-  // <Provider store={stores}>
-    {/* <Container> */}
-      {/* <App /> */}
-      <div><h1>hello</h1></div>
-    {/* </Container> */}
-  // </Provider>,
+  <div>
+    <h1>hello</h1>
+  </div>,
   document.getElementById("root")
 );
 
