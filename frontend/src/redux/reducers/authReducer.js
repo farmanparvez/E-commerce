@@ -26,7 +26,7 @@ const authSlice = createSlice({
         // console.log(action.payload)
         state.isLoading = false;
         state.isSuccess = true;
-        localStorage.setItem("Etoken", action.payload.token);
+        action?.payload?.token && localStorage.setItem("token", action.payload.token);
         localStorage.setItem("userInfo", JSON.stringify(action.payload.user));
       })
       .addCase(login.rejected, (state, action) => {

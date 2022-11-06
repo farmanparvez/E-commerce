@@ -27,10 +27,11 @@ const protect = catchAsync(async (req, res, next) => {
   //   glbalarr.push(obj)
   // });
   // const { token } = glbalarr.find(el => el.token)
-  // console.log(token)
-
+  // console.log('here')
+  
   const token = req?.cookies?.token;
-  if (!token) return next(new AppError("No token found, Not Authorized", 400));
+  // console.log(token)
+  if (!token ) return next(new AppError("No token found, Not Authorized", 400));
   const decode = jwt.verify(token, process.env.JWT_SECRET);
   // console.log(decode)
   // if(!decode) return next(new AppError('Invalid token'))

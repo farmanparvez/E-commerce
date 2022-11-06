@@ -2,11 +2,6 @@ import axios from "axios";
 // import { useCookies } from 'react-cookie';
 
 export const getRequest = (url, data) => {
-  // const [cookies, setCookie, removeCookie] = useCookies(['cookie-name']);
-  // const Etoken = localStorage.getItem("Etoken")
-  //   ? localStorage.getItem("Etoken")
-  //   : undefined;
-
   const config = {
     headers: {
       "Content-Type": "application/json",

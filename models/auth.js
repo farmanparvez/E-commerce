@@ -13,7 +13,8 @@ const authSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, 'Password is required']
+    required: [true, 'Password is required'],
+    minlength: 8,
   },
   confirmPassword: {
     type: String,
@@ -25,10 +26,10 @@ const authSchema = new mongoose.Schema({
       message: 'Password not same'
     },
   },
-  isAdmin: {
-    type: Boolean,
-    required: true,
-    default: false
+  role: {
+    type: String,
+    enum: ['1287', '3497'],
+    default: '1287'
   },
   date: {
     type: Date,

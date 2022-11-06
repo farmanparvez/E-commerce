@@ -12,7 +12,7 @@ import Container from "../components/Container";
 const LoginScreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  console.log("login");
   const { isLoading, isSuccess, isError, isMessage } = useSelector(
     (state) => state.auth
   );
@@ -23,7 +23,7 @@ const LoginScreen = ({ location, history }) => {
 
   useEffect(() => {
     if (isSuccess) {
-      history.push("/");
+      history.push("/profile");
     }
     return () => dispatch(reset());
   }, [isSuccess, dispatch, history]);

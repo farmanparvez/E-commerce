@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "start:dev": "nodemon server.js",
+    "start:dev": "SET NODE_ENV=development && nodemon server.js",
     "start:prod": "SET NODE_ENV=production && nodemon server.js",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run start:dev\" \"npm run client\"  ",

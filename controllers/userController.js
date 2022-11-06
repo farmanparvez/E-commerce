@@ -26,7 +26,6 @@ exports.deleteUserByID = catchAsync(async (req, res, next) => {
 });
 
 exports.updateUserByID = catchAsync(async (req, res, next) => {
-    // console.log(req.user)
     // if(!req.user.isAdmin) return next(new AppError('Not Authorized', 400))
     const { username, email, isAdmin } = req.body
     const data = { username, email, isAdmin }

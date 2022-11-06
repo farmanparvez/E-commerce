@@ -1,17 +1,23 @@
-import React from 'react'
-import { Redirect, Route } from 'react-router-dom'
+import React from "react";
+import { Redirect, Route } from "react-router-dom";
 
-const ProtectedRoutes = ({component: Component, allowedRoles,  ...rest }) => {
-    // console.log(allowedRoles)
-    const Etoken = localStorage.getItem('Etoken')
-    const userInfo = JSON.parse(localStorage.getItem('userInfo'))
-    console.log(userInfo)
-    const roles = allowedRoles?.find(el => el === userInfo?.isAdmin)
-    console.log(roles)
-    // console.log(Etoken)
+const ProtectedRoutes = ({ component: Component, allowedRoles, ...rest }) => {
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const roles = allowedRoles?.find((el) => el === userInfo?.role);
   return (
-    <Route {...rest} render={(props) => Etoken ? <Component {...props}/> :   <Redirect to="/login" />} /> 
-  )
-}
+    <Route
+      {...rest}
+      render={(props) =>
+        roles ? (
+          <Component {...props} />
+        ) : userInfo ? (
+          <Redirect to="/UnAuthorized" />
+        ) : (
+          <Redirect to="/login" />
+        )
+      }
+    />
+  );
+};
 // UnAuthorized
-export default ProtectedRoutes
+export default ProtectedRoutes;
