@@ -20,4 +20,5 @@ const ProtectedRoutes = ({ component: Component, allowedRoles, ...rest }) => {
   );
 };
 // UnAuthorized
+
 export default ProtectedRoutes;
