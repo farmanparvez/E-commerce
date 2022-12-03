@@ -1,25 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.737d3867.chunk.css",
-    "main.js": "/static/js/main.3bbe6962.chunk.js",
-    "main.js.map": "/static/js/main.3bbe6962.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.0b13f7b4.js",
-    "runtime-main.js.map": "/static/js/runtime-main.0b13f7b4.js.map",
-    "static/css/2.162af468.chunk.css": "/static/css/2.162af468.chunk.css",
-    "static/js/2.8de45400.chunk.js": "/static/js/2.8de45400.chunk.js",
-    "static/js/2.8de45400.chunk.js.map": "/static/js/2.8de45400.chunk.js.map",
+    "main.css": "/static/css/main.9460a92b.css",
+    "main.js": "/static/js/main.d621a595.js",
+    "static/media/girl-fashion.png": "/static/media/girl-fashion.94199c7d4ce07691d6aa.png",
+    "static/media/men-fashion (2).png": "/static/media/men-fashion (2).ba54baa6f6d5f93a6e3b.png",
     "index.html": "/index.html",
-    "static/css/2.162af468.chunk.css.map": "/static/css/2.162af468.chunk.css.map",
-    "static/css/main.737d3867.chunk.css.map": "/static/css/main.737d3867.chunk.css.map",
-    "static/js/2.8de45400.chunk.js.LICENSE.txt": "/static/js/2.8de45400.chunk.js.LICENSE.txt",
-    "static/media/girl-fashion.94199c7d.png": "/static/media/girl-fashion.94199c7d.png",
-    "static/media/men-fashion (2).ba54baa6.png": "/static/media/men-fashion (2).ba54baa6.png"
+    "main.9460a92b.css.map": "/static/css/main.9460a92b.css.map",
+    "main.d621a595.js.map": "/static/js/main.d621a595.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.0b13f7b4.js",
-    "static/css/2.162af468.chunk.css",
-    "static/js/2.8de45400.chunk.js",
-    "static/css/main.737d3867.chunk.css",
-    "static/js/main.3bbe6962.chunk.js"
+    "static/css/main.9460a92b.css",
+    "static/js/main.d621a595.js"
   ]
 }
