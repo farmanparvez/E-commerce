@@ -35,10 +35,6 @@ import "antd/dist/antd.min.css"; // or 'antd/dist/antd.less'
 import "./bootstrap.min.css";
 
 const App = () => {
-  // const dispatch = useDispatch()
-  // useEffect(() => {
-  //   if(localStorage.getItem('Etoken')) dispatch(getUserInfo())
-  // })
 
   const ROLES = {
     User: "1287",

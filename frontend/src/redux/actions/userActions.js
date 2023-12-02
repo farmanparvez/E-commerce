@@ -4,7 +4,6 @@ import { getLoginUserDetails, getUsersAPI, deleteUserAPI, editUserAPI } from "..
 export const getUserInfo = createAsyncThunk("Info/userInfo", async (history, thunkAPI) => {
     try {
         const res = await getLoginUserDetails()
-        // console.log(res)
         return res.data
     } catch (error) {
         const message = error.response.data.message || error.message || error.toString()
